@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function temp() {
+            let kor = 100;
+            let eng = 95;
+            let mat = 78;
+            let total = kor + eng + mat;
+
+            let result = document.getElementById("result");
+            result.innerHTML = total;
+        }
+        function temp2() {
+            alert('ccc');
+        }
+    </script>
+</head>
+<body>
+    <p id="song">나리나리 개나리</p>
+    <p id="result"></p>
+    <input type="button" value="click me" onclick="temp()">
+    <input type="button" value="click me2" onclick="temp2()">
+</body>
+</html>
