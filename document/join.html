@@ -7,18 +7,18 @@
 </head>
 <body>
     <div><h1>[ 회원가입 ]</h1></div>
-    <form action="">
+    <form method="post">
         <table border="1">
             <tr>
                 <th>아이디</th>
                 <td>
-                    <input type="text" placeholder="아이디를 입력">
+                    <input type="text" name="username" placeholder="아이디를 입력">
                     <input type="button" value="중복확인">
                 </td>
             </tr>
             <tr>
                 <th>비밀번호</th>
-                <td><input type="password" placeholder="비밀번호를 입력"></td>
+                <td><input type="password" name="userpwd" placeholder="비밀번호를 입력"></td>
             </tr>
             <tr>
                 <th>비밀번호 확인</th>
@@ -31,6 +31,41 @@
             <tr>
                 <th>이메일</th>
                 <td><input type="email" placeholder="확인 가능한 이메일" required></td>
+            </tr>
+            <tr>
+                <th>성별</th>
+                <td>
+                    <input type="radio" name="gender" value="woman"> 여성
+                    <input type="radio" name="gender" value="man"> 남성
+                </td>
+            </tr>
+            <tr>
+                <th>취미</th>
+                <td>
+                    <input type="checkbox" name="hobby" value="skydiving"> 스카이다이빙
+                    <input type="checkbox" name="hobby" value="swimming"> 수영
+                    <input type="checkbox" name="hobby" value="hiking"> 등산
+                    <input type="checkbox" name="hobby" value="watchingmovies"> 영화감상
+                    <input type="checkbox" name="hobby" value="reading"> 독서
+                </td>
+            </tr>
+            <tr>
+                <th>지역</th>
+                <td>
+                    <select name="location">
+                        <option>서울시</option>
+                        <option>인천광역시</option>
+                        <option>부산광역시</option>
+                        <option>용인시</option>
+                        <option>포항시</option>                        
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>자기소개</th>
+                <td>
+                    <textarea rows="6" cols="40" name="introduce">something</textarea>
+                </td>
             </tr>
             <tr>
                 <th colspan="2">
