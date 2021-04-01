@@ -4,6 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입 화면</title>
+
+    <script>
+        // 회원 가입 데이터 검증
+        // 회원가입 정책
+        // 
+        function validation () {
+            let userid = document.getElementById("userid");
+            let userpwd1 = document.getElementById("userpwd1");
+            let userpwd2 = document.getElementById("userpwd2");
+            let username = document.getElementById("username");
+            let location = document.getElementById("location").selectedIndex;
+
+            if (userid.value.length < 3 || userid.value.length > 5) {
+                alert("아이디는 3~5 사이로 입력해주세요");
+                userid.select();
+                return;
+            }
+
+            if (userpwd1.value != userpwd2.value) {
+                alert("비밀번호와 확인은 같아야 합니다.");
+                return;
+            }
+
+            if (username.value.length == 0) {
+                alert("이름은 필수 입력사항입니다.");
+                return;
+            }
+
+            let hometown; // ES6
+            if (location == 0) {
+                hometown = "서울";
+            } else if (location == 1) {
+                hometown = "인천";
+            } else if (location == 2) {
+                hometown = "부산";
+            } else if (location == 3) {
+                hometown = "용인";
+            } else {
+                hometown = "포항";
+            }
+
+            let message = '아이디 : ' + userid.value + ', 비밀번호 : ' + userpwd1.value + ', 이름 : ' + username.value + ', 지역 : ' + hometown;
+            alert(message);
+            //아이디 : id, 비밀번호 : userpwd1
+
+
+        }
+    </script>
 </head>
 <body>
     <div><h1>[ 회원가입 ]</h1></div>
@@ -12,31 +60,31 @@
             <tr>
                 <th>아이디</th>
                 <td>
-                    <input type="text" name="username" placeholder="아이디를 입력">
+                    <input type="text" id="userid" name="userid" placeholder="아이디를 입력">
                     <input type="button" value="중복확인">
                 </td>
             </tr>
             <tr>
                 <th>비밀번호</th>
-                <td><input type="password" name="userpwd" placeholder="비밀번호를 입력"></td>
+                <td><input type="password" id="userpwd1" name="userpwd" placeholder="비밀번호를 입력"></td>
             </tr>
             <tr>
                 <th>비밀번호 확인</th>
-                <td><input type="password" placeholder="비밀번호 확인을 입력"></td>
+                <td><input type="password" id="userpwd2" placeholder="비밀번호 확인을 입력"></td>
             </tr>
             <tr>
                 <th>이름</th>
-                <td><input type="text" placeholder="실명이름 입력"></td>
+                <td><input type="text" id="username" placeholder="실명이름 입력"></td>
             </tr>
             <tr>
                 <th>이메일</th>
-                <td><input type="email" placeholder="확인 가능한 이메일" required></td>
+                <td><input type="email" id="email" placeholder="확인 가능한 이메일" required></td>
             </tr>
             <tr>
                 <th>성별</th>
                 <td>
-                    <input type="radio" name="gender" value="woman"> 여성
-                    <input type="radio" name="gender" value="man"> 남성
+                    <input type="radio" id="woman" name="gender" value="woman"> 여성
+                    <input type="radio" id="name" name="gender" value="man" checked> 남성
                 </td>
             </tr>
             <tr>
@@ -52,7 +100,7 @@
             <tr>
                 <th>지역</th>
                 <td>
-                    <select name="location">
+                    <select id="location" name="location">
                         <option>서울시</option>
                         <option>인천광역시</option>
                         <option>부산광역시</option>
@@ -64,12 +112,12 @@
             <tr>
                 <th>자기소개</th>
                 <td>
-                    <textarea rows="6" cols="40" name="introduce">something</textarea>
+                    <textarea rows="6" cols="40" id="introduce" name="introduce">something</textarea>
                 </td>
             </tr>
             <tr>
                 <th colspan="2">
-                    <input type="submit" value="회원가입">
+                    <input type="button" value="회원가입" onclick="validation();">
                     <input type="reset" value="취소">
                 </th>
             </tr>

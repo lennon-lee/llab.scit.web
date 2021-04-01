@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function total() {
+            /*
+            let a = 30;
+            let b = 22;
+            if (a > b) {
+                alert(a + '가' + b + '보다 크다');
+            }
+            if (a > b) {
+                alert(a + '가' + b + '보다 크다');
+            } else {
+                alert(a + '가' + b + '보다 작거나 같다');
+            }
+            if (a > b) {
+                alert(a + '가' + b + '보다 크다');
+            } else if (a < b) {
+                alert(a + '가' + b + '보다 작다');
+            } else {
+                alert(a + '가' + b + '와 같다');
+            }
+            */
+            let kor = document.getElementById('kor').value || 0;
+            console.log(kor);
+            let eng = document.getElementById('eng').value || 0;
+            let mat = document.getElementById('mat').value || 0;
+
+            let total = parseInt(kor) + parseInt(eng) + parseInt(mat);
+            console.log(total);
+            document.getElementById('result').value = total;
+            alert(total);
+            
+        }
+    </script>
+</head>
+<body>
+    <div>
+        국어 : <input id="kor" type="text"><br>
+        영어 : <input id="eng" type="text"><br>
+        수학 : <input id="mat" type="text"><br>
+        총점 : <input id="result" type="text" readonly><br><br>
+
+        <input type="button" value="총점보기" onclick="total();">
+    </div>
+</body>
+</html>
