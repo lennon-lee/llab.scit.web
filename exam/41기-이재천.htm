@@ -1,0 +1,123 @@
+<!-- 1) 경고창 출력하기 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function resultFunction() {
+            let resultElement = document.getElementById("result");
+            resultElement.innerText = "** 나의 이름은 : 이재천입니다.";
+        }
+
+        function validation() {
+            let userid = document.getElementById("userid");
+            let userpwd = document.getElementById("userpwd");
+            let userpwd2 = document.getElementById("userpwd2");
+
+            if (userid.value.length < 3 || userid.value.length > 5) {
+                alert("아이디의 길이는 3~5글자로 입력하시오");
+                userid.select();
+                return;
+            }
+
+            if (userpwd.value != userpwd2.value) {
+                alert("비밀번호와 비밀번호 확인의 값은 같아야합니다");
+                userpwd.select();
+                return;
+            }
+
+            if (userpwd.value.length < 1 || userpwd.value.length > 5) {
+                alert("비밀번호의 길이는 1~5글자로 입력하시오");
+                userpwd.select();
+                return;
+            }
+
+            alert("회원가입이 완료되었습니다.");
+        }
+
+        function calculator() {
+            let num1 = parseInt(document.getElementById("num1").value) || '';
+            let num2 = parseInt(document.getElementById("num2").value) || '';
+            let oper = document.getElementById("oper").selectedIndex;
+            let result = document.getElementById("resultCal");
+            
+            if (!num1) {
+                alert("첫번째 숫자를 입력해주세요").
+                return;
+            }
+
+            if (!num2) {
+                alert("두번째 숫자를 입력해주세요").
+                return;
+            }
+
+            let resultValue = 0;
+            if (oper === 0) {
+                resultValue = num1 + num2;
+            } else if (oper === 1) {
+                resultValue = num1 - num2;
+            } else if (oper === 2) {
+                resultValue = num1 * num2;
+            } else if (oper === 3) {
+                resultValue = num1 / num2;
+            }
+
+            result.value = resultValue;
+        }
+    </script>
+</head>
+<body>
+    <h1>[ 문제 1 ]</h1>
+    <input type="button" value="경고창 출력" onclick="alert('경고창이 출력되었습니다.')" >
+    <br>
+
+    <h1>[ 문제 2 ]</h1>
+    <p id="result">** 나의 이름은 : </p>
+    <input type="button" value="출력하기" onclick="resultFunction()">
+    <br>
+    
+    <h1>[ 문제 3 ]</h1>
+    <div>
+        <table border="2">
+            <tr>
+                <th colspan="2">회원 가입</th>
+            </tr>
+            <tr>
+                <th>아이디</th>
+                <td><input id="userid" type="text" placeholder="아이디를 입력"></td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td><input id="userpwd" type="password"></td>
+            </tr>
+            <tr>
+                <th>비밀번호 확인</th>
+                <td><input id="userpwd2" type="password"></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="button" value="회원가입" onclick="validation()">
+                </th>
+            </tr>
+        </table>
+    </div>
+    <br>
+
+    <h1>[ 문제 4 ]</h1>
+    <div>
+        <input id="num1" type="text" >
+        <select id="oper">
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+        </select>
+        <input id="num2" type="text" >
+        <input type="button" value="=" onclick="calculator()">
+        <input id="resultCal" type="text">
+    </div>
+</body>
+</html>
